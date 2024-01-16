@@ -6,18 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.drivepdfviewer.Adapters.ZoomRecyclerView
         android:id="@+id/pagesRecyclerView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:padding="8dp"
         android:clipToPadding="false"
         android:scrollbars="none"
         android:layout_centerInParent="true"
 
         />
-
-
 
 
 </RelativeLayout>
