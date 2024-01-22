@@ -20,7 +20,7 @@ public class List_PDF_View_Adapter extends RecyclerView.Adapter<List_PDF_View_Ad
     private Context context;
     private PdfRenderer pdfRenderer;
 
-    private Matrix matrix = new Matrix(); // Matrix for transformations
+
 
 
     public List_PDF_View_Adapter(Context context, PdfRenderer pdfRenderer) {
@@ -39,8 +39,6 @@ public class List_PDF_View_Adapter extends RecyclerView.Adapter<List_PDF_View_Ad
     public void onBindViewHolder(ViewHolder holder, int position) {
         Bitmap bitmap = getBitmapForPage(position);
         holder.imageView.setImageBitmap(bitmap);
-        holder.imageView.setScaleType(ImageView.ScaleType.MATRIX);
-        holder.imageView.setImageMatrix(matrix);
 
 
     }
@@ -53,21 +51,20 @@ public class List_PDF_View_Adapter extends RecyclerView.Adapter<List_PDF_View_Ad
     private Bitmap getBitmapForPage(int pageIndex) {
         PdfRenderer.Page page = pdfRenderer.openPage(pageIndex);
         Bitmap bitmap = Bitmap.createBitmap(page.getWidth(), page.getHeight(), Bitmap.Config.ARGB_8888);
-        page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
+        page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_PRINT);
         page.close();
         return bitmap;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
-        CardView cardView;
         RelativeLayout relativeLayout;
+        ImageView imageView;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.pdfPageImageView);
-            cardView = itemView.findViewById(R.id.card);
-            relativeLayout = itemView.findViewById(R.id.rt);
+
         }
     }
 }
