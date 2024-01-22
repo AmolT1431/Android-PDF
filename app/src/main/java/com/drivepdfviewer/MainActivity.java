@@ -2,13 +2,9 @@ package com.drivepdfviewer;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.graphics.pdf.PdfRenderer;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
-import android.view.View;
 import android.widget.Toast;
 
 
@@ -21,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
-    private ParcelFileDescriptor parcelFileDescriptor;
+    protected ParcelFileDescriptor parcelFileDescriptor;
 
     private PdfRenderer pdfRenderer;
 

@@ -2,24 +2,22 @@ package com.drivepdfviewer.Adapters;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Matrix;
 import android.graphics.pdf.PdfRenderer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
-import androidx.cardview.widget.CardView;
+
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.drivepdfviewer.R;
-import com.drivepdfviewer.view.PageView;
+
 
 public class List_PDF_View_Adapter extends RecyclerView.Adapter<List_PDF_View_Adapter.ViewHolder> {
 
-    private Context context;
-    private PdfRenderer pdfRenderer;
+    private final Context context;
+    private final PdfRenderer pdfRenderer;
 
 
     public List_PDF_View_Adapter(Context context, PdfRenderer pdfRenderer) {
@@ -27,8 +25,9 @@ public class List_PDF_View_Adapter extends RecyclerView.Adapter<List_PDF_View_Ad
         this.pdfRenderer = pdfRenderer;
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.pdf_page_view, parent, false);
 
         return new ViewHolder(view);
@@ -56,7 +55,7 @@ public class List_PDF_View_Adapter extends RecyclerView.Adapter<List_PDF_View_Ad
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        RelativeLayout relativeLayout;
+
         ImageView imageView;
 
 
