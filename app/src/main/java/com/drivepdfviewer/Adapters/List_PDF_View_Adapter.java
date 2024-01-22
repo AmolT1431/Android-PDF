@@ -14,13 +14,12 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.drivepdfviewer.R;
+import com.drivepdfviewer.view.PageView;
 
 public class List_PDF_View_Adapter extends RecyclerView.Adapter<List_PDF_View_Adapter.ViewHolder> {
 
     private Context context;
     private PdfRenderer pdfRenderer;
-
-
 
 
     public List_PDF_View_Adapter(Context context, PdfRenderer pdfRenderer) {
@@ -64,6 +63,7 @@ public class List_PDF_View_Adapter extends RecyclerView.Adapter<List_PDF_View_Ad
         public ViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.pdfPageImageView);
+
 
         }
     }

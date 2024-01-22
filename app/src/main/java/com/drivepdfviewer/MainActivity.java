@@ -3,9 +3,12 @@ package com.drivepdfviewer;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.graphics.pdf.PdfRenderer;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
+import android.view.View;
 import android.widget.Toast;
 
 
@@ -47,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void copyPdfFromAssetsToInternalStorage() {
         try {
-            InputStream inputStream = getAssets().open("test.pdf");
-            File file = new File(getFilesDir(), "test.pdf");
+            InputStream inputStream = getAssets().open("qp.pdf");
+            File file = new File(getFilesDir(), "qp.pdf");
             FileOutputStream outputStream = new FileOutputStream(file);
             byte[] buffer = new byte[1024];
             int size;
@@ -64,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openRenderer() throws IOException {
-        File file = new File(getFilesDir(), "test.pdf");
+        File file = new File(getFilesDir(), "qp.pdf");
         parcelFileDescriptor = ParcelFileDescriptor.open(file, ParcelFileDescriptor.MODE_READ_ONLY);
         pdfRenderer = new PdfRenderer(parcelFileDescriptor);
     }
@@ -76,5 +79,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
     }
+
 
 }
